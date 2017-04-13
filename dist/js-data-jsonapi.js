@@ -108,7 +108,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 	    JsonApiAdapter.prototype.DeSerializeJsonResponse = function (resourceConfig, response) {
 	        var _this = this;
-	        if (Helper.JsonApiHelper.ContainsJsonApiContentTypeHeader(response.headers)) {
+	        if (Helper.JsonApiHelper.ContainsJsonApiContentTypeHeader(response.headers())) {
 	            if (response.data.errors) {
 	                response.data = Helper.JsonApiHelper.FromJsonApiError(response.data);
 	            }

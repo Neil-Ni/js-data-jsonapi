@@ -85,7 +85,7 @@ export class JsonApiAdapter implements JSData.IDSAdapter {
 
     DeSerializeJsonResponse(resourceConfig: JSData.DSResourceDefinition<any>, response: JSData.DSHttpAdapterPromiseResolveType): any {
         //Only process JSON Api responses!!
-        if (Helper.JsonApiHelper.ContainsJsonApiContentTypeHeader(response.headers)) {
+        if (Helper.JsonApiHelper.ContainsJsonApiContentTypeHeader(response.headers())) {
             // Decode Json API Error response
             if (response.data.errors) {
                 response.data = Helper.JsonApiHelper.FromJsonApiError(response.data);
