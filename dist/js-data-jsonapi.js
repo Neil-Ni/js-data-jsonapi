@@ -134,6 +134,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	                        }
 	                    }
 	                }
+	                if (response.config && response.config.beforeDeSerialize) {
+	                    response.config.beforeDeSerialize.call(this, response);
+	                }
 	                var obj = Helper.JsonApiHelper.DeSerialize(new Helper.SerializationOptions(resourceConfig), response.data);
 	                response.data = obj.data;
 	            }

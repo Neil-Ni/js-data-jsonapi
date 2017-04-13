@@ -115,6 +115,10 @@ export class JsonApiAdapter implements JSData.IDSAdapter {
                     }
                 }
 
+                // Call beforeDeSerialize if provided
+                if (response.config && response.config.beforeDeSerialize) {
+                    response.config.beforeDeSerialize.call(this, response);
+                }
                 // Response should contain data and model.
                 var obj = Helper.JsonApiHelper.DeSerialize(new Helper.SerializationOptions(resourceConfig), response.data);
 
